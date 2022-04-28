@@ -1,4 +1,10 @@
-const quizData = axios.get();
+
+
+const quizData = "";
+axios.get('http://127.0.0.1:3000/api/getQuestions').then(response => {
+    quizData = response.data;
+    console.log(quizData);
+});
 
 const quiz= document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
