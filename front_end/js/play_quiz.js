@@ -69,18 +69,18 @@ function selected () {
     return answer;
 };
 
-btnSubmit.addEventListener('click', () => {
-    let answer = selected();
-    if(answer) {
-        if(answer === data[quizData].correct) {
-            score++
-        }
-        quizData++
+// btnSubmit.addEventListener('click', () => {
+//     let answer = selected();
+//     if(answer) {
+//         if(answer === data[quizData].correct) {
+//             score++
+//         }
+//         quizData++
 
-        if(quizData < data.length) {
-            playQuiz()
-        }else {
+//         if(quizData < data.length) {
+//             playQuiz()
+//         }else {
 
-        }
-    }
-})
+//         }
+//     }
+// })
