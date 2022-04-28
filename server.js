@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 
-
+const cors = require('cors');
+app.use(cors());
 const PORT = process.env.PORT || 3000
 app.use(express.urlencoded({extended:true}))
 
@@ -20,7 +21,7 @@ app.get('/api/getQuestions',(req,res)=>{
     res.send(getAllQuestions);
 })
 
-app.post('/api/createQuestions',(req,res)=>{
+app.post('/api/createQuestion',(req,res)=>{
 
     let question = req.body;
     questionModel.createNewQuestion(question);
