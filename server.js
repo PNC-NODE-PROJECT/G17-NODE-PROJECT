@@ -20,4 +20,10 @@ app.get('/api/getQuestions',(req,res)=>{
     res.send(getAllQuestions);
 })
 
+app.post('/api/createQuestions',(req,res)=>{
+
+    let question = req.body;
+    questionModel.createNewQuestion(question);
+    res.send("created successfully")
+})
 
