@@ -3,32 +3,28 @@
         "question": "Which language runs in a web browser?",
         "a": "Java",
         "b": "C",
-        "c": "Python",
-        "d": "javascript",
-        "correct": "d"
+        "c": "javascript",
+        "correct": "c"
     },
     {
         "question": "Which language runs in a web browser?",
         "a": "Java",
         "b": "C",
-        "c": "Python",
-        "d": "javascript",
-        "correct": "d"
+        "c": "javascript",
+        "correct": "c"
     },
     {
         "question": "Which language runs in a web browser?",
         "a": "Java",
         "b": "C",
-        "c": "Python",
-        "d": "javascript",
-        "correct": "d"
+        "c": "javascript",
+        "correct": "c"
     },
     {
         "question": "Which language runs in a web browser?",
         "a": "Java",
         "b": "C",
-        "c": "Python",
-        "d": "javascript",
-        "correct": "d"
+        "c": "javascript",
+        "correct": "c"
     }
 ]

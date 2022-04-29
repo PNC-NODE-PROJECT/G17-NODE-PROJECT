@@ -1,8 +1,56 @@
+// fake data 
+let data =[
+    {
+        question:"What does CSS stand for?",
+        a: "Cascading Style Sheets",
+        b: "Cascading Simple Sheets",
+        c:"Central Style Sheets",
+        correct:"a",
+    },
+    {
+        question: "What does HTML stand for?",
+        a: "Hypertext Markdown Language",
+        b: "Hyperloop Machine Language",
+        c: "Hypertext Markup Language",
+        correct:"c",
+    },
+    {
+        question: "What does URL stand for?",
+        a: "Place to search something",
+        b: "Uniform Resource Locator.",
+        c: "rearch tool",
+        correct:"b",
+    },
+];
+
+function getData() {
+    axios.get('http://localhost:3000/api/getQuestions').then(response => {
+    let getData = response.data;
+    refreshDom(getData);
+});
+}
 
 
-const quizData = "";
-axios.get('http://127.0.0.1:3000/api/getQuestions').then(response => {
-    quizData = response.data;
+
+function refreshDom(getData) {
+    for (let index = 0; index < getData.length; index++) {
+        let container = document.createElement('div');
+        container.className = document.querySelector('.quiz-container');
+        let quiz_header = document.createElement('div');
+        quiz_header.className =document.querySelector('quiz-header');
+        let question = document.createElement('h2');
+        question.className = document.querySelector('question');
+
+
+        // appendChild---------------
+        question.appendChild(quiz-header);
+        quiz_header.appendChild(container);
+    }
+};
+
+const quizData = []
+axios.get('http://localhost:3000/api/getQuestions').then(response => {
+    let quizData = response.data;
     console.log(quizData);
 });
 
@@ -12,12 +60,20 @@ const questionEl = document.getElementById('question')
 const a_text = document.getElementById('a_text')
 const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
-const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
 
 
 let currentQuiz = 0
 let score = 0
+
+// let getData = getdataFromback()
+
+// function getdataFromback(){
+//     axios.get("/",(req,res) =>{
+//         let date = res.data;
+//     })
+// }
+
 
 loadQuiz()
 
@@ -25,13 +81,14 @@ function loadQuiz() {
 
     deselectAnswers()
 
-    const currentQuizData = quizData[currentQuiz]
+    const currentQuizData = data[currentQuiz]
 
-    questionEl.innerText = currentQuizData.question
-    a_text.innerText = currentQuizData.a
-    b_text.innerText = currentQuizData.b
-    c_text.innerText = currentQuizData.c
-    d_text.innerText = currentQuizData.d
+    questionEl.textContent = currentQuizData.question
+    console.log(currentQuizData);
+    a_text.textContent = currentQuizData.a
+    b_text.textContent = currentQuizData.b
+    c_text.textContent = currentQuizData.c
+    
 }
 
 function deselectAnswers() {
@@ -52,19 +109,20 @@ function getSelected() {
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
     if(answer) {
-       if(answer === quizData[currentQuiz].correct) {
+       if(answer === data[currentQuiz].correct) {
            score++
        }
 
        currentQuiz++
 
-       if(currentQuiz < quizData.length) {
+       if(currentQuiz < data.length) {
            loadQuiz()
        } else {
            quiz.innerHTML = `
-           <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+           <h2>You answered ${score}/${data.length} questions correctly</h2>
            <button onclick="location.reload()">Reload</button>
            `
        }
     }
 })
+

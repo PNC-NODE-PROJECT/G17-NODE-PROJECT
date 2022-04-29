@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
+let cors = require('cors');
 
 
 const PORT = process.env.PORT || 3000
 app.use(express.urlencoded({extended:true}))
-
+app.use(cors({origin:'*'})); 
 
 app.use(express.json())
 app.listen(PORT,()=>{
