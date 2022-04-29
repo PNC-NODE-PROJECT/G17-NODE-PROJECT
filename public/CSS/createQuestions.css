@@ -2,7 +2,7 @@
 .logo{
     width: 15%;
 }
-
+/* ----------------------------------form question--------------------------- */
 .titleOfQuiz {
     width: 60%;
     margin:auto;
@@ -23,7 +23,6 @@
 .titleOfQuiz .question{
 border-bottom: 1px detted #000;
 }
-
 .addQuestion{
     width: 60%;
     margin:auto;
@@ -35,7 +34,6 @@ border-bottom: 1px detted #000;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border-left: 7px solid #000;
 }
-
 .addQuestion:last-child{
     margin-bottom: 3%;
 }
@@ -44,7 +42,6 @@ border-bottom: 1px detted #000;
     width: 83%;
     margin: auto;
 }
-
 .form-control,
 .question{
     width: 100%;
@@ -56,17 +53,14 @@ border-bottom: 1px detted #000;
     background-color: none;
     padding-top: 10px;
 }
-
 .form-control:focus,
 .questions .form-group .question:focus{
     border-top: 2px solid #000;
 }
-
 .questions  .form-control{
     border-bottom:  2px solid #000;
     margin-bottom: 15px;
 }
-
 .answer .form-group{
     outline: none;
     width: 42%;
@@ -76,15 +70,12 @@ border-bottom: 1px detted #000;
     margin-right: 50%;
     
 }
-
 input[type='redio']{
     transform:scale(1.5);
 }
-
 .radioAnswer{
     margin: 20px 16px 0 0;
 }
-
 .submit{
     padding: 15px;
     margin: 20px;
@@ -95,7 +86,7 @@ input[type='redio']{
     left: 80%;
 }
 
-
+/* --------------------------------------display question------------------------ */
 .displayQuestion{
 
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -103,9 +94,6 @@ input[type='redio']{
     margin: auto;
     border-radius: 5px;
     margin-top: 20px;
-}
-
-.makeQuestion{
     padding: 10px;
 }
 
@@ -114,10 +102,9 @@ input[type='redio']{
     position: relative;
     left: 95%;
 }
-.redioAnswer{
-    position: relative;
-    left: 5%;
+.redioAnswer .answer{
+    margin-left: 80px;
 }
-.redioAnswer .answer1{
-    margin-left: 100px;
+.titleQuestion{
+font-size: 25px;
 }

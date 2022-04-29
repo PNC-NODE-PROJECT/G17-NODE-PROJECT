@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
-    <link rel="stylesheet" href="../CSS/createQuestions.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/createQuestions.css">
     <script src="../js/createQuestions.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -17,7 +18,7 @@
 <nav class="">
     <a href="../index.html"><img src="../image/logpnc.png" alt="" class="logo"></a>
 </nav>
-<!----------------------------------create form quiz ---------------------->
+<!----------------------------------create form for input question ---------------------->
 <div class="quiz">
     <div class="titleOfQuiz bg-danger">
         <div class="form-group">
@@ -54,29 +55,8 @@
     </div>
     <button class="submit">Submit</button>
 </div>
-<!-- -------------------------display Question ------------------>
-<div class="displayQuestion">
-<div class="makeQuestion">
-    <div class="deleteQuestion">
-        <form class="titleQuestion">1. What is your Question?</form>
-        <img src="../image/remove.png" alt="" class="remove">
-    </div>
-    <div class="redioAnswer">
-        <input type="radio" name="" id="" class="answer1">
-        <label>re</label>
-    
-        <input type="radio" name="" id="" class="answer1">
-        <label>re</label>
-    
-        <input type="radio" name="" id="" class="answer1">
-        <label>re</label>
-    
-        <input type="radio" name="" id="" class="answer1">
-        <label>re</label>
-    </div>
-    
-</div>
-</div>
+<!-- -------------------------for get element from js to display ------------------>
+<div class="displayQuestion"></div>
 </div>
 </body>
 </html>

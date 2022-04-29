@@ -2,30 +2,14 @@ const express = require('express');
 const app = express();
 let cors = require('cors');
 
-const cors = require('cors');
-app.use(cors());
-const PORT = process.env.PORT || 3000
-app.use(express.urlencoded({extended:true}))
+const PORT =4000;
 app.use(cors({origin:'*'})); 
 
 app.use(express.json())
 app.listen(PORT,()=>{
     console.log('listening on port '+ PORT)
 })
-
-const questionModel = require('./models/quiz_module');
 app.use(express.static("public"));
-
-
-app.get('/api/getQuestions',(req,res)=>{
-    let getAllQuestions = questionModel.getAllQuestions();
-    res.send(getAllQuestions);
-})
-
-app.post('/api/createQuestion',(req,res)=>{
-
-    let question = req.body;
-    questionModel.createNewQuestion(question);
-    res.send("created successfully")
-})
-
+// -----------------------------require route----------------------
+const quizRouter = require('./routes/quizRoute.js')
+app.use("/api",quizRouter);

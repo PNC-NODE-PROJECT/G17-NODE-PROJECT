@@ -23,16 +23,14 @@ let data =[
     },
 ];
 
-function getData() {
-    axios.get('http://localhost:3000/api/getQuestions').then(response => {
-    let getData = response.data;
-    refreshDom(getData);
-});
-}
+// function getData() {
+//     axios.get('/api/getQuestions').then(response => {
+//     let getData = response.data;
+//     refreshDom(getData);
+// });
+// }
 
 
-<<<<<<< HEAD:public/questions/script.js
-=======
 
 function refreshDom(getData) {
     for (let index = 0; index < getData.length; index++) {
@@ -50,13 +48,12 @@ function refreshDom(getData) {
     }
 };
 
-const quizData = []
-axios.get('http://localhost:3000/api/getQuestions').then(response => {
-    let quizData = response.data;
-    console.log(quizData);
-});
+// const quizData = []
+// axios.get('/api/getQuestions').then(response => {
+//     let quizData = response.data;
+//     console.log(quizData);
+// });
 
->>>>>>> dd929b0ca3aa0fa60c499742467f0a6f5fa7e082:front_end/questions/script.js
 const quiz= document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
@@ -65,27 +62,10 @@ const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
 const submitBtn = document.getElementById('submit')
 
-function displayQuestion(quizData) {
-    for(let question of quizData){
-        
-    }
-}
-
-function refreshDom(){
-    axios.get('/api/getQuestions').then(response => {
-        quizData = response.data;
-        displayQuestion(quizData)
-        console.log(quizData);
-    });
-}
-
 
 let currentQuiz = 0
 let score = 0
 
-<<<<<<< HEAD:public/questions/script.js
-// loadQuiz()
-=======
 // let getData = getdataFromback()
 
 // function getdataFromback(){
@@ -96,23 +76,10 @@ let score = 0
 
 
 loadQuiz()
->>>>>>> dd929b0ca3aa0fa60c499742467f0a6f5fa7e082:front_end/questions/script.js
 
 
-// function loadQuiz() {
-
-<<<<<<< HEAD:public/questions/script.js
-//     deselectAnswers()
-    
-//     // const currentQuizData = quizData[currentQuiz]
-
-//     questionEl.innerText = currentQuizData.question
-//     a_text.innerText = currentQuizData.a
-//     b_text.innerText = currentQuizData.b
-//     c_text.innerText = currentQuizData.c
-//     d_text.innerText = currentQuizData.d
-// }
-=======
+function loadQuiz() {
+    deselectAnswers()
     const currentQuizData = data[currentQuiz]
 
     questionEl.textContent = currentQuizData.question
@@ -122,7 +89,6 @@ loadQuiz()
     c_text.textContent = currentQuizData.c
     
 }
->>>>>>> dd929b0ca3aa0fa60c499742467f0a6f5fa7e082:front_end/questions/script.js
 
 function deselectAnswers() {
     answerEls.forEach(answerEl => answerEl.checked = false)
