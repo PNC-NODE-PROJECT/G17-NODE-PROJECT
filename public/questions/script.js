@@ -1,11 +1,5 @@
 
 
-const quizData = "";
-axios.get('http://127.0.0.1:3000/api/getQuestions').then(response => {
-    quizData = response.data;
-    console.log(quizData);
-});
-
 const quiz= document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
@@ -15,24 +9,39 @@ const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
 
+function displayQuestion(quizData) {
+    for(let question of quizData){
+        
+    }
+}
+
+function refreshDom(){
+    axios.get('/api/getQuestions').then(response => {
+        quizData = response.data;
+        displayQuestion(quizData)
+        console.log(quizData);
+    });
+}
+
 
 let currentQuiz = 0
 let score = 0
 
-loadQuiz()
+// loadQuiz()
 
-function loadQuiz() {
 
-    deselectAnswers()
+// function loadQuiz() {
 
-    const currentQuizData = quizData[currentQuiz]
+//     deselectAnswers()
+    
+//     // const currentQuizData = quizData[currentQuiz]
 
-    questionEl.innerText = currentQuizData.question
-    a_text.innerText = currentQuizData.a
-    b_text.innerText = currentQuizData.b
-    c_text.innerText = currentQuizData.c
-    d_text.innerText = currentQuizData.d
-}
+//     questionEl.innerText = currentQuizData.question
+//     a_text.innerText = currentQuizData.a
+//     b_text.innerText = currentQuizData.b
+//     c_text.innerText = currentQuizData.c
+//     d_text.innerText = currentQuizData.d
+// }
 
 function deselectAnswers() {
     answerEls.forEach(answerEl => answerEl.checked = false)
