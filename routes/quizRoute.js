@@ -27,10 +27,10 @@ router.delete('/removeQuestions/:id',(req,res)=>{
 
 router.patch('/editQuestions',(req,res)=>{
     let newInfo = req.body;
-   let updated= questionModel.updateQuestion(newInfo);
-   let message ={};
+    let updated= questionModel.updateQuestion(newInfo);
+    let message ={};
     if(updated){
-     message = {message:"update successful"};
+    message = {message:"update successful"};
     }else{
         message = {message:"date invalid"};
 
