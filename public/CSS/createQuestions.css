@@ -21,11 +21,7 @@
 }
 .titleOfQuiz .form-control,
 .titleOfQuiz .question{
-<<<<<<< HEAD
 border-bottom: 1px detted #e8ad25;
-=======
-    border-bottom: 1px detted #e8ad25;
->>>>>>> 6e460ceb54c028d9558907ab18e3d770b4f0a3a3
 }
 .addQuestion{
     width: 60%;

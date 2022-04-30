@@ -159,10 +159,7 @@ const inputAnswerB = document.querySelector("#answerB");
 const inputAnswerC = document.querySelector("#answerC");
 const inputAnswerD = document.querySelector("#answerD");
 const inputScore = document.querySelector("#score");
-<<<<<<< HEAD
 const answerOfQuestion = document.querySelector("#correctAnswer");
-=======
->>>>>>> 6e460ceb54c028d9558907ab18e3d770b4f0a3a3
 const btnSubmit = document.getElementById("submit_button")
 
 document.body.addEventListener("click",editQuestion);
