@@ -21,7 +21,7 @@
 }
 .titleOfQuiz .form-control,
 .titleOfQuiz .question{
-    border-bottom: 1px detted #e8ad25;
+border-bottom: 1px detted #e8ad25;
 }
 .addQuestion{
     width: 60%;
@@ -135,4 +135,8 @@ input[type='number']{
 }
 .bgScore:hover{
     background: #27b977;
+}
+.answerField {
+    width: 100;
+    align-items: center;
 }
