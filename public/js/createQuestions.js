@@ -118,8 +118,14 @@ function addQuestion(event) {
     let b = inputAnswerB.value;
     let c = inputAnswerC.value;
     let d = inputAnswerD.value;
+    let correctAnswer = answerOfQuestion.value;
     let score = inputScore.value;
-    axios.post("/api/createQuestion", { question: question, answer: {a,  b, c, d },score:score }).then(refreshDom);
+    axios.post("/api/createQuestion", { question: question, answer: {a,  b, c, d },correctAnswer : correctAnswer,score:score }).then(()=>{
+
+        location.reload();
+        refreshDom();
+    }
+        );
     
 }
 
@@ -153,6 +159,7 @@ const inputAnswerB = document.querySelector("#answerB");
 const inputAnswerC = document.querySelector("#answerC");
 const inputAnswerD = document.querySelector("#answerD");
 const inputScore = document.querySelector("#score");
+const answerOfQuestion = document.querySelector("#correctAnswer");
 const btnSubmit = document.getElementById("submit_button")
 
 document.body.addEventListener("click",editQuestion);
