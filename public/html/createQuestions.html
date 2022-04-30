@@ -31,29 +31,37 @@
 </div>
 <div class="addQuestion">
     <div class="questions">
+        <label>Question:</label>
         <div class="form-group">
             <input type="text" name="" id="question" class="form-control question" placeholder="Question">
         </div>
     </div>
     <div class="answer">
-        <div class="form-group">
-            <input type="radio" name="answer" id="" class="radioAnswer">
-            <input type="text" name="" id="" class="form-control " placeholder="Answer1">
+        <div class="titleAnswer">
+            <label>Answer:</label>
+            <div class="score">
+                <label for="">Asing Score</label>
+                <input type="number" value="0" id="score">
+            </div>
         </div>
         <div class="form-group">
             <input type="radio" name="answer" id="" class="radioAnswer">
-            <input type="text" name="" id="" class="form-control" placeholder="Answer2">
+            <input type="text" name="" id="answerA​​​​​​​​" class="form-control  " placeholder="Answer1">
         </div>
         <div class="form-group">
             <input type="radio" name="answer" id="" class="radioAnswer">
-            <input type="text" name="" id="" class="form-control" placeholder="Answer3">
+            <input type="text" name="" id="answerB" class="form-control  " placeholder="Answer2">
         </div>
         <div class="form-group">
             <input type="radio" name="answer" id="" class="radioAnswer">
-            <input type="text" name="" id="" class="form-control" placeholder="Answer4">
+            <input type="text" name="" id="answerC" class="form-control  ​​" placeholder="Answer3">
+        </div>
+        <div class="form-group">
+            <input type="radio" name="answer" id="" class="radioAnswer">
+            <input type="text" name="" id="answerD" class="form-control  ​​" placeholder="Answer4">
         </div>
     </div>
-    <button class="submit">Submit</button>
+    <button type="submit" id ="submit_button" class="submit">Submit</button>
 </div>
 <!-- -------------------------for get element from js to display ------------------>
 <div class="displayQuestion"></div>
