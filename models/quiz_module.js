@@ -16,7 +16,7 @@ function getAllQuestions(){
 
 function createNewQuestion(question){
     let questions = getListOfQuestions();
-    let newQuestion={"id":uuidv4(),"question":question.question,"answer":question.answer,"correctAnswer":question.correctAnswer,"completed":false}
+    let newQuestion={"id":uuidv4(),"question":question.question,"answer":question.answer,"correctAnswer":question.correctAnswer,"score":question.score,"completed":false}
     questions.push(newQuestion);
     uploadQuestion(questions);
 }
@@ -42,6 +42,7 @@ function updateQuestion(newInfo){
         question.answer.c=newInfo.answer.c;
         question.answer.d=newInfo.answer.d;
         question.correctAnswer=newInfo.correctAnswer;
+        question.score = newInfo.score;
         question.completed = true;
         isValid =true;
         uploadQuestion(questions);
