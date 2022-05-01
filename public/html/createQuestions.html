@@ -11,14 +11,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
+
 </head>
 <body>
-
-<!-- --------------------------create menu----------------------- -->
-<nav class="">
-    <a href="../index.html"><img src="../image/logpnc.png" alt="" class="logo"></a>
-</nav>
-<!----------------------------------create form for input question ---------------------->
+<!-- CREATE MENU -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <h1><span class="logoTitle">QUIZ APP</span>  G-17</h1>
+                <div>
+                    <a href="playQuiz.html"><button id="quiz-btn">QUIZ</button> </a>   
+                </div>
+            </div>
+        </div>
+    </nav>
+<!----------------------------------CREATE FORM FOR INPUT QUIZ ---------------------->
 <div class="quiz">
     <div class="titleOfQuiz bg-danger">
         <div class="form-group">
@@ -41,34 +48,29 @@
             <label>Answer:</label>
             <div class="score">
                 <label for="">Asing Score</label>
-                <input type="number" value="0" id="score">
+                <input type="number" value="0"  id="score">
             </div>
         </div>
         <div class="form-group">
-            <input type="radio" name="answer" id="" class="radioAnswer">
-            <input type="text" name="" id="answerA​​​​​​​​" class="form-control  " placeholder="Answer1">
+            <input type="text" name="" id="answerA​​​​​​​​" class="form-control  " placeholder="AnswerA">
         </div>
         <div class="form-group">
-            <input type="radio" name="answer" id="" class="radioAnswer">
-            <input type="text" name="" id="answerB" class="form-control  " placeholder="Answer2">
+            <input type="text" name="" id="answerB" class="form-control  " placeholder="AnswerB">
         </div>
         <div class="form-group">
-            <input type="radio" name="answer" id="" class="radioAnswer">
-            <input type="text" name="" id="answerC" class="form-control  ​​" placeholder="Answer3">
+            <input type="text" name="" id="answerC" class="form-control  ​​" placeholder="AnswerC">
         </div>
         <div class="form-group">
-            <input type="radio" name="answer" id="" class="radioAnswer">
-            <input type="text" name="" id="answerD" class="form-control  ​​" placeholder="Answer4">
+            <input type="text" name="" id="answerD" class="form-control  ​​" placeholder="AnswerD">
         </div>
         <div class="answerField">
-            <label for="correctAnswer">correct Answer</label>
-            <input type="text" name="correctAnswer" id="correctAnswer" placeholder="input the a, b, c or d" class="textAnswer">
-            <!-- <input type="text" name="" id="answerD" class="form-control  ​​" placeholder="Answer4"> -->
+            <label for="correctAnswer">correct Answer : </label>
+            <input type="text" name="correctAnswer" id="correctAnswer" placeholder="CHOOSE A, B, C OR D " class="textAnswer">
         </div>
     </div>
-    <button type="submit" id ="submit_button" class="submit">Submit</button>
+    <button type="submit" id ="submit_button" class="submit">Create</button>
 </div>
-<!-- -------------------------for get element from js to display ------------------>
+<!-- -------------------------FOR GET ELEMENT FROM JS TO DISPLAY ------------------>
 <div class="displayQuestion"></div>
 </div>
 </body>

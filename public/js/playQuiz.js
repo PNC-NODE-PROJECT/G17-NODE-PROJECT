@@ -1,27 +1,21 @@
 // fake data 
 var data =[];
 
-
+// GET DATA FROM BACKEND TO DISPLAYQUIZ
 axios.get('/api/getQuestions').then(response => {
     data = response.data;
     getData(data);
 })
+
+// CREATE ELEMENT FOR DISPLAYQUIZ
 function getData(data) {
     for (let index = 0; index < data.length; index++) {
-
-
-
-
-
-
         let container = document.createElement('div');
         container.className = document.querySelector('.quiz-container');
         let quiz_header = document.createElement('div');
         quiz_header.className =document.querySelector('quiz-header');
         let question = document.createElement('h2');
         question.className = document.querySelector('question');
-
-
         // appendChild---------------
         question.appendChild(quiz_header);
         quiz_header.appendChild(container);
@@ -29,11 +23,7 @@ function getData(data) {
 }
 
 
-
 const quiz= document.getElementById('quiz');
-
-
-
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
 const a_text = document.getElementById('a_text')
@@ -42,16 +32,11 @@ const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
 var allQuestionScore = 0;
-
 let currentQuiz = 0
 let score = 0
 
-
-
-
 loadQuiz()
-
-
+// CREATE FUNCTION FOR DISPLAYQUIZ
 function loadQuiz() {
     deselectAnswers()
     axios.get('/api/getQuestions').then(response => {
