@@ -18,8 +18,6 @@ function getData(data) {
         quiz_header.className =document.querySelector('quiz-header');
         let question = document.createElement('h2');
         question.className = document.querySelector('question');
-
-
         // appendChild---------------
         question.appendChild(quiz_header);
         quiz_header.appendChild(container);
@@ -27,11 +25,7 @@ function getData(data) {
 }
 
 
-
 const quiz= document.getElementById('quiz');
-
-
-
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
 const a_text = document.getElementById('a_text')
@@ -40,19 +34,13 @@ const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
 var allQuestionScore = 0;
-
 let currentQuiz = 0
 let score = 0
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 879177b1316a673292a7b7ebbe97919d0aee588b
 loadQuiz()
 // CREATE FUNCTION FOR DISPLAYQUIZ
-
 function loadQuiz() {
     deselectAnswers()
     axios.get('/api/getQuestions').then(response => {
@@ -111,17 +99,7 @@ function showFirstPage(){
     document.querySelector('.container').style.display="block";
     document.querySelector('.container').style.display="flex";
     document.querySelector('.container').style.justifyContent="space-around";
-<<<<<<< HEAD
-    
     document.querySelector('.navbar').style.display="none";
-    // document.body.style.backgroundColor ="#d0d624";
-    document.body.style.backgroundImage ="url('https://cdn.pixabay.com/photo/2022/03/15/08/23/school-supplies-7069761_1280.jpg')";
-=======
-    document.querySelector('.navbar').style.display="none";
-    // document.body.style.backgroundColor ="#d0d624";
     document.body.style.backgroundImage ="url('https://cdn.pixabay.com/photo/2022/03/15/08/23/school-supplies-7069761_1280.jpg')";
 
-    document.body.style.backgroundColor ="#d0d624";
-    document.body.style.backgroundImage ="none";
->>>>>>> 879177b1316a673292a7b7ebbe97919d0aee588b
 }

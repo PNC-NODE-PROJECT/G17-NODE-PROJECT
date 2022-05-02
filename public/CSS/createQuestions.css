@@ -1,7 +1,7 @@
 /* -----------------------------------create menu-------------- */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
-/* edit logo menu */
+/* EDIT LOGO */
 .logo{
     display: flex;
     padding: 10px;
@@ -21,8 +21,8 @@
     border-radius: 5px;
 
 }
-/* ----------------------------------form question--------------------------- */
-.titleOfQuiz ,
+/* STYLE FOR QUESTION */
+
 .makeQuestion{
     width: 60%;
     margin:auto;
@@ -36,12 +36,8 @@
     background:white;
 }
 
-.titleOfQuiz .title{
-    font-size: xx-large;
-    margin-bottom: 2%;
-}
-.titleOfQuiz .form-control,
-.titleOfQuiz .question{
+
+.question{
 border-bottom: 1px detted #e8ad25;
 }
 .addQuestion{
@@ -119,7 +115,7 @@ input[type='redio']{
     left: 80%;
 }
 
-/* --------------------------------------display question------------------------ */
+/* STYLE FOR DESPLAYQUESTION */
 .displayQuestion{
 
     width: 60%;
@@ -140,8 +136,7 @@ label,
     font-family: 'Roboto', sans-serif;
 
 }
- .answer{
-    /* margin-left: 60px; */
+.answer{
     display: block;
     padding: 15px;
     font-family: serif;
@@ -160,15 +155,13 @@ margin-top: 20px;
 input[type='number']{
     width: 30px;
 }
-/* .deleteQuestion{
-    display: flex;
-} */
+
 .deleteQuestion{
     margin-bottom: 30px;
 }
 
 .makeQuestion{
-    /* margin: px; */
+    
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;    padding: 20px;
     width: 95%;
 }

@@ -66,14 +66,14 @@ function displayQuestion(questions) {
         let answer = document.createElement("div");
         answer.className = "redioAnswer";
         let listOfAnswer = question.answer;
-        let divAnswer = document.createElement("div");
+
         let labelAnswerA = document.createElement("label");
         labelAnswerA.className = "answer"
         labelAnswerA.textContent ="A. " + listOfAnswer.a;
+
         let labelAnswerB = document.createElement("label");
         labelAnswerB.className = "answer"
         labelAnswerB.textContent ="B. " + listOfAnswer.b;
-        
 
         let labelAnswerC = document.createElement("label");
         labelAnswerC.className = "answer"
@@ -127,6 +127,7 @@ function addQuestion(event) {
         window.alert("You forgot fill Questio , answer , score or correctAnswer")
     }else{
         axios.post("/api/createQuestion", { question: question, answer: {a,  b, c, d },correctAnswer : correctAnswer,score:score }).then(()=>{
+    
             location.reload();
             refreshDom();
         }
@@ -159,11 +160,6 @@ function editQuestion(event) {
         showElement(dom_edit);
         hideElement(document.getElementsByClassName('addQuestion')[0]);
         getQuestionsById(id);
-        // sp testing
-            // axios.patch("/api/editQuestions",).then((res) => {
-            //     console.log(res)
-            // })
-            // refreshDom();
         }
 }
 function getPatch() {
@@ -187,7 +183,6 @@ function getPatch() {
 function getQuestionsById(id){
     
     axios.get('/api/getOneQuestion/'+id).then((result) => {
-        // console.log(result.data);
         let quest = result.data;
         update_question.value=quest.question;
         update_scores.value=quest.score;
@@ -211,15 +206,15 @@ function updateAQuestion(e){
     showElement(document.getElementsByClassName('addQuestion')[0]);
     refreshDom();
 }
-// ------------------------------sp testing--------------------
+
 refreshDom();
 
-// sp testing
+
 const dom_edit=document.querySelector('#editQuestion');
 let btn_update=document.querySelector('#edit_button');
 btn_update.addEventListener('click',getPatch);
 hideElement(dom_edit);
-// sp testing
+
 
 
 document.body.addEventListener("click",editQuestion);
