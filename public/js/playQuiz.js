@@ -1,6 +1,6 @@
-// fake data 
-var data =[];
+// get data ---------------------
 
+var data =[];
 
 axios.get('/api/getQuestions').then(response => {
     data = response.data;
@@ -8,10 +8,6 @@ axios.get('/api/getQuestions').then(response => {
 })
 function getData(data) {
     for (let index = 0; index < data.length; index++) {
-
-
-
-
 
 
         let container = document.createElement('div');
@@ -48,7 +44,6 @@ let score = 0
 
 
 
-
 loadQuiz()
 
 
@@ -57,7 +52,7 @@ function loadQuiz() {
     axios.get('/api/getQuestions').then(response => {
         data = response.data
         let currentQuizData = data[currentQuiz]
-        questionEl.textContent = currentQuizData.question
+        questionEl.textContent = "Question : "+ currentQuizData.question + "?"
         // console.log(currentQuizData);
         a_text.textContent = currentQuizData.answer.a
         b_text.textContent = currentQuizData.answer.b
@@ -86,10 +81,10 @@ submitBtn.addEventListener('click', () => {
     axios.get('/api/getQuestions').then(response => {
         data = response.data;
         const answer = getSelected()
-        allQuestionScore+=data[currentQuiz].score
+        allQuestionScore+=parseInt(data[currentQuiz].score)
         if(answer) {
            if(answer === data[currentQuiz].correctAnswer) {
-               score+= data[currentQuiz].score
+               score+= parseInt(data[currentQuiz].score)
            }
     
            currentQuiz++
@@ -110,8 +105,7 @@ function showFirstPage(){
     document.querySelector('.container').style.display="block";
     document.querySelector('.container').style.display="flex";
     document.querySelector('.container').style.justifyContent="space-around";
-    // document.querySelector('.container').style.display="block";
     document.querySelector('.navbar').style.display="none";
-    document.body.style.backgroundColor ="#d0d624";
-    document.body.style.backgroundImage ="none";
+    // document.body.style.backgroundColor ="#d0d624";
+    document.body.style.backgroundImage ="url('https://cdn.pixabay.com/photo/2022/03/15/08/23/school-supplies-7069761_1280.jpg')";
 }

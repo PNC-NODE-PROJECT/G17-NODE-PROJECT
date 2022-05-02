@@ -46,13 +46,28 @@ function updateQuestion(newInfo){
         question.completed = true;
         isValid =true;
         uploadQuestion(questions);
+        return 'upload success'
     }else{
         index =-1;
     }
     return isValid;
 }
 
+// function get questions ----------------------------------------------------
+function getOneQuestion(id){
+    console.log(id);
+    
+    let allQuestion = getAllQuestions();
+    for(let i = 0; i < allQuestion.length; i++){
+        if(allQuestion[i].id === id){
+            return allQuestion[i];
+        }
+    }
+    return 'Not found this id'
+}
+
 module.exports.getAllQuestions=getAllQuestions;
 module.exports.createNewQuestion=createNewQuestion;
 module.exports.deleteQuestion = deleteQuestion;
 module.exports.updateQuestion = updateQuestion;
+module.exports.getOneQuestion = getOneQuestion;
