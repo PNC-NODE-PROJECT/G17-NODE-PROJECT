@@ -63,62 +63,45 @@ function displayQuestion(questions) {
         removeQuestion.append(span);
         removeQuestion.append(titleQuestion);
 
-        let radioAnswer = document.createElement("div");
-        radioAnswer.className = "redioAnswer";
+        let answer = document.createElement("div");
+        answer.className = "redioAnswer";
         let listOfAnswer = question.answer;
 
-        let answer1 = document.createElement("input");
-        answer1.type = "radio";
-        answer1.id = "1";
-        answer1.className = "answer";
         let labelAnswerA = document.createElement("label");
-        labelAnswerA.textContent = listOfAnswer.a;
+        labelAnswerA.className = "answer"
+        labelAnswerA.textContent ="A. " + listOfAnswer.a;
 
-        let answer2 = document.createElement("input");
-        answer2.type = "radio";
-        answer2.id = "2";
-        answer2.className = "answer";
         let labelAnswerB = document.createElement("label");
-        labelAnswerB.textContent = listOfAnswer.b;
+        labelAnswerB.className = "answer"
+        labelAnswerB.textContent ="B. " + listOfAnswer.b;
 
-        let answer3 = document.createElement("input");
-        answer3.type = "radio";
-        answer3.id = "2";
-        answer3.className = "answer";
         let labelAnswerC = document.createElement("label");
-        labelAnswerC.textContent = listOfAnswer.c;
+        labelAnswerC.className = "answer"
+        labelAnswerC.textContent ="C. " + listOfAnswer.c;
 
-        let answer4 = document.createElement("input");
-        answer4.type = "radio";
-        answer4.id = "2";
-        answer4.className = "answer";
         let labelAnswerD = document.createElement("label");
-        labelAnswerD.textContent = listOfAnswer.d;
+        labelAnswerD.className = "answer"
+        labelAnswerD.textContent ="D. " + listOfAnswer.d;
 
-        radioAnswer.append(answer1);
-        radioAnswer.append(labelAnswerA);
-        radioAnswer.append(answer2);
-        radioAnswer.append(labelAnswerB);
-        radioAnswer.append(answer3);
-        radioAnswer.append(labelAnswerC);
-        radioAnswer.append(answer4);
-        radioAnswer.append(labelAnswerD);
+        answer.append(labelAnswerA);
+        answer.append(labelAnswerB);
+        answer.append(labelAnswerC);
+        answer.append(labelAnswerD);
 
         makeQuestion.append(removeQuestion);
-        makeQuestion.append(radioAnswer);
+        makeQuestion.append(answer);
         NewdisplayQuestion.append(makeQuestion);
         console.log(NewdisplayQuestion);
         document.body.append(NewdisplayQuestion);
     }
-
 }
-// -------------------------------------function get data from backend----------------
+
+// CREATE FUNCTION FOR GET DATA FROM 
 function refreshDom() {
     axios.get("/api/getQuestions").then((res) => {
         let questions = res.data;
         displayQuestion(questions);
         console.log(questions);
-        
     })
 }
 
@@ -130,7 +113,7 @@ function hideElement (element){
 function showElement (element){
     element.style.display = "block";
 }
-
+//  CREATE FUNCTION FOR ADD QUESTION  AND CHECK IF NOT INPUT ALERT WINDOW
 function addQuestion(event) {
     event.preventDefault();
     let question = inputQuestion.value;
@@ -140,15 +123,19 @@ function addQuestion(event) {
     let d = inputAnswerD.value;
     let correctAnswer = answerOfQuestion.value;
     let score = inputScore.value;
-    axios.post("/api/createQuestion", { question: question, answer: {a,  b, c, d },correctAnswer : correctAnswer,score:score }).then(()=>{
-
-        location.reload();
-        refreshDom();
+    if(question==="" || a ==="" || b === "" || c === "" || d === "" || correctAnswer ==="" || score ===""){
+        window.alert("You forgot fill Questio , answer , score or correctAnswer")
+    }else{
+        axios.post("/api/createQuestion", { question: question, answer: {a,  b, c, d },correctAnswer : correctAnswer,score:score }).then(()=>{
+    
+            location.reload();
+            refreshDom();
+        }
+            );
     }
-        );
     
 }
-
+// CREATE FUNCTION FOR DELETE QUESTIONS
 function removeQuestion(event) {
     event.preventDefault();
     if (event.target.class === "delete") {
