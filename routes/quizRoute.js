@@ -15,9 +15,13 @@ router.get('/getOneQuestion/:id',(req,res)=>{
     let getOneQuestions = questionModel.getOneQuestion(req.params.id);
     res.send(getOneQuestions);
 })
+<<<<<<< HEAD
 
 router.post('/createQuestion',(req,res)=>{
+=======
+>>>>>>> 879177b1316a673292a7b7ebbe97919d0aee588b
 
+router.post('/createQuestion',(req,res)=>{
     let question = req.body;
     questionModel.createNewQuestion(question);
     res.send("created successfully")

@@ -1,7 +1,7 @@
-// fake data 
+// get data ---------------------
+
 var data =[];
 
-// GET DATA FROM BACKEND TO DISPLAYQUIZ
 axios.get('/api/getQuestions').then(response => {
     data = response.data;
     getData(data);
@@ -46,7 +46,10 @@ let score = 0
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 879177b1316a673292a7b7ebbe97919d0aee588b
 loadQuiz()
 // CREATE FUNCTION FOR DISPLAYQUIZ
 
@@ -108,8 +111,17 @@ function showFirstPage(){
     document.querySelector('.container').style.display="block";
     document.querySelector('.container').style.display="flex";
     document.querySelector('.container').style.justifyContent="space-around";
+<<<<<<< HEAD
     
     document.querySelector('.navbar').style.display="none";
     // document.body.style.backgroundColor ="#d0d624";
     document.body.style.backgroundImage ="url('https://cdn.pixabay.com/photo/2022/03/15/08/23/school-supplies-7069761_1280.jpg')";
+=======
+    document.querySelector('.navbar').style.display="none";
+    // document.body.style.backgroundColor ="#d0d624";
+    document.body.style.backgroundImage ="url('https://cdn.pixabay.com/photo/2022/03/15/08/23/school-supplies-7069761_1280.jpg')";
+
+    document.body.style.backgroundColor ="#d0d624";
+    document.body.style.backgroundImage ="none";
+>>>>>>> 879177b1316a673292a7b7ebbe97919d0aee588b
 }

@@ -1,4 +1,26 @@
-// CREATE FUNCTION FOR DISPLAYQUESTION
+
+
+
+// -----------------------input data------------------------
+let update_question = document.querySelector('#questions');
+let update_scores = document.querySelector('#scores');
+let update_ansA = document.querySelector('#ansA');
+let update_ansB = document.querySelector('#ansB');
+let update_ansC =document.querySelector('#ansC');
+let update_ansD = document.querySelector('#ansD');
+let update_correctAnswers = document.querySelector('#correctAnswers');
+
+
+const inputQuestion = document.querySelector('#question');
+const inputAnswerA = document.querySelector('#answerA');
+const inputAnswerB = document.querySelector("#answerB");
+const inputAnswerC = document.querySelector("#answerC");
+const inputAnswerD = document.querySelector("#answerD");
+const inputScore = document.querySelector("#score");
+const answerOfQuestion = document.querySelector("#correctAnswer");
+const btnSubmit = document.getElementById("submit_button");
+
+// -------------------create function and create element to html-------------------
 function displayQuestion(questions) {
 
     let displayQuestion = document.querySelector(".displayQuestion");
@@ -85,11 +107,11 @@ function refreshDom() {
 
 //  CREAE FUNCTION FOR HIDE AND SHOW ELEMENT
 function hideElement (element){
-    element.style.display = none;
+    element.style.display = "none";
 }
 
-function hideElement (element){
-    element.style.display = block;
+function showElement (element){
+    element.style.display = "block";
 }
 //  CREATE FUNCTION FOR ADD QUESTION  AND CHECK IF NOT INPUT ALERT WINDOW
 function addQuestion(event) {
@@ -125,26 +147,80 @@ function removeQuestion(event) {
         }
 }
 
+let questionsId =0;
+
 function editQuestion(event) {
     event.preventDefault();
+
     if (event.target.class === "edit") {
         let id = event.target.parentElement.id;
-        console.log(id);
-            axios.patch("/api/editQuestions/" + id).then((res) => {
-                console.log(res)
-            })
-            refreshDom();
+      
+        questionsId=id;
+        showElement(dom_edit);
+        hideElement(document.getElementsByClassName('addQuestion')[0]);
+        getQuestionsById(id);
+        // sp testing
+            // axios.patch("/api/editQuestions",).then((res) => {
+            //     console.log(res)
+            // })
+            // refreshDom();
         }
 }
+function getPatch() {
+    let data = {};
+    let answer = {};
+    data.question = update_question.value;
+    answer.a = update_ansA.value;
+    answer.b = update_ansB.value;
+    answer.c = update_ansC.value;
+    answer.d = update_ansD.value;
+    data.answer = answer;
+    data.correctAnswer = update_correctAnswers.value;
+    data.score = update_scores.value;
+    data.id = questionsId;
+    axios.patch("/api/editQuestions/"+questionsId, data).then((res) => {
+        console.log(res)
+        location.reload();
+    })
+}
+// ----------------------------------sp testing update--------------------
+function getQuestionsById(id){
+    
+    axios.get('/api/getOneQuestion/'+id).then((result) => {
+        // console.log(result.data);
+        let quest = result.data;
+        update_question.value=quest.question;
+        update_scores.value=quest.score;
+        update_ansA.value=quest.answer.a;
+        update_ansB.value=quest.answer.b;
+        update_ansC.value=quest.answer.c;
+        update_ansD.value=quest.answer.d;
+        update_correctAnswers.value=quest.correctAnswer;
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
+function updateAQuestion(e){
+    e.preventDefault();
+    let body={ question: update_question.value, answer: {a:update_ansA.value,  b:update_ansB.value, c:update_ansC.value, d:update_ansD.value },correctAnswer : update_correctAnswers.value,score:update_scores.value };
+    axios.patch("/api/editQuestions/" + questionsId,body).then((res) => {
+        console.log(res)
+    })
+    hideElement(dom_edit);
+    showElement(document.getElementsByClassName('addQuestion')[0]);
+    refreshDom();
+}
+// ------------------------------sp testing--------------------
 refreshDom();
-const inputQuestion = document.querySelector('#question');
-const inputAnswerA = document.querySelector("#answerA​​​​​​​​");
-const inputAnswerB = document.querySelector("#answerB");
-const inputAnswerC = document.querySelector("#answerC");
-const inputAnswerD = document.querySelector("#answerD");
-const inputScore = document.querySelector("#score");
-const answerOfQuestion = document.querySelector("#correctAnswer");
-const btnSubmit = document.getElementById("submit_button")
+
+// sp testing
+const dom_edit=document.querySelector('#editQuestion');
+let btn_update=document.querySelector('#edit_button');
+btn_update.addEventListener('click',getPatch);
+hideElement(dom_edit);
+// sp testing
+
 
 document.body.addEventListener("click",editQuestion);
 document.body.addEventListener("click", removeQuestion);
