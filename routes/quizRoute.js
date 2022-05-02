@@ -11,6 +11,11 @@ router.get('/getQuestions',(req,res)=>{
     res.send(getAllQuestions);
 })
 
+router.get('/getOneQuestion/:id',(req,res)=>{
+    let getOneQuestions = questionModel.getOneQuestion(req.params.id);
+    res.send(getOneQuestions);
+})
+
 router.post('/createQuestion',(req,res)=>{
 
     let question = req.body;
@@ -24,15 +29,15 @@ router.delete('/removeQuestions/:id',(req,res)=>{
     questionModel.deleteQuestion(id);
     res.send("deleted successfully")
 })
-
-router.patch('/editQuestions',(req,res)=>{
+// sp ----------------
+router.patch('/editQuestions/:id',(req,res)=>{
     let newInfo = req.body;
     let updated= questionModel.updateQuestion(newInfo);
     let message ={};
     if(updated){
-    message = {message:"update successful"};
+        message = {message:"update successful"};
     }else{
-        message = {message:"date invalid"};
+        message = {message:"update invalid"};
 
     }
     res.send(message);

@@ -10,12 +10,16 @@ axios.get('/api/getQuestions').then(response => {
 // CREATE ELEMENT FOR DISPLAYQUIZ
 function getData(data) {
     for (let index = 0; index < data.length; index++) {
+
+
         let container = document.createElement('div');
         container.className = document.querySelector('.quiz-container');
         let quiz_header = document.createElement('div');
         quiz_header.className =document.querySelector('quiz-header');
         let question = document.createElement('h2');
         question.className = document.querySelector('question');
+
+
         // appendChild---------------
         question.appendChild(quiz_header);
         quiz_header.appendChild(container);
@@ -23,7 +27,11 @@ function getData(data) {
 }
 
 
+
 const quiz= document.getElementById('quiz');
+
+
+
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
 const a_text = document.getElementById('a_text')
@@ -32,17 +40,22 @@ const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
 var allQuestionScore = 0;
+
 let currentQuiz = 0
 let score = 0
 
+
+
+
 loadQuiz()
 // CREATE FUNCTION FOR DISPLAYQUIZ
+
 function loadQuiz() {
     deselectAnswers()
     axios.get('/api/getQuestions').then(response => {
         data = response.data
         let currentQuizData = data[currentQuiz]
-        questionEl.textContent = currentQuizData.question
+        questionEl.textContent = "Question : "+ currentQuizData.question + "?"
         // console.log(currentQuizData);
         a_text.textContent = currentQuizData.answer.a
         b_text.textContent = currentQuizData.answer.b
@@ -71,10 +84,10 @@ submitBtn.addEventListener('click', () => {
     axios.get('/api/getQuestions').then(response => {
         data = response.data;
         const answer = getSelected()
-        allQuestionScore+=data[currentQuiz].score
+        allQuestionScore+=parseInt(data[currentQuiz].score)
         if(answer) {
            if(answer === data[currentQuiz].correctAnswer) {
-               score+= data[currentQuiz].score
+               score+= parseInt(data[currentQuiz].score)
            }
     
            currentQuiz++
@@ -95,8 +108,8 @@ function showFirstPage(){
     document.querySelector('.container').style.display="block";
     document.querySelector('.container').style.display="flex";
     document.querySelector('.container').style.justifyContent="space-around";
-    // document.querySelector('.container').style.display="block";
+    
     document.querySelector('.navbar').style.display="none";
-    document.body.style.backgroundColor ="#d0d624";
-    document.body.style.backgroundImage ="none";
+    // document.body.style.backgroundColor ="#d0d624";
+    document.body.style.backgroundImage ="url('https://cdn.pixabay.com/photo/2022/03/15/08/23/school-supplies-7069761_1280.jpg')";
 }

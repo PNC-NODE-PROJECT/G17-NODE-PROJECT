@@ -44,14 +44,14 @@ function displayQuestion(questions) {
         let answer = document.createElement("div");
         answer.className = "redioAnswer";
         let listOfAnswer = question.answer;
-
+        let divAnswer = document.createElement("div");
         let labelAnswerA = document.createElement("label");
         labelAnswerA.className = "answer"
         labelAnswerA.textContent ="A. " + listOfAnswer.a;
-
         let labelAnswerB = document.createElement("label");
         labelAnswerB.className = "answer"
         labelAnswerB.textContent ="B. " + listOfAnswer.b;
+        
 
         let labelAnswerC = document.createElement("label");
         labelAnswerC.className = "answer"
@@ -105,7 +105,6 @@ function addQuestion(event) {
         window.alert("You forgot fill Questio , answer , score or correctAnswer")
     }else{
         axios.post("/api/createQuestion", { question: question, answer: {a,  b, c, d },correctAnswer : correctAnswer,score:score }).then(()=>{
-    
             location.reload();
             refreshDom();
         }
