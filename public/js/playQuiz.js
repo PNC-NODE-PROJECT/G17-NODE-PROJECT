@@ -103,6 +103,6 @@ function showFirstPage(){
     // document.body.style.backgroundColor ="#d0d624";
     document.body.style.backgroundImage ="url('https://cdn.pixabay.com/photo/2022/03/15/08/23/school-supplies-7069761_1280.jpg')";
 
-    document.body.style.backgroundColor ="#d0d624";
-    document.body.style.backgroundImage ="none";
+    // document.body.style.backgroundColor ="#d0d624";
+    // document.body.style.backgroundImage ="none";
 }

@@ -160,11 +160,7 @@ function editQuestion(event) {
         showElement(dom_edit);
         hideElement(document.getElementsByClassName('addQuestion')[0]);
         getQuestionsById(id);
-        // sp testing
-            // axios.patch("/api/editQuestions",).then((res) => {
-            //     console.log(res)
-            // })
-            // refreshDom();
+
         }
 }
 function getPatch() {
