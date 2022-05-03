@@ -222,8 +222,6 @@ document.body.addEventListener("click", removeQuestion);
 btnSubmit.addEventListener("click", addQuestion);
 
 
-//  display good and bad answer 
-
 
 
 

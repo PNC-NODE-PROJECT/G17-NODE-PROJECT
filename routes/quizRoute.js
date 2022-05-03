@@ -28,7 +28,7 @@ router.delete('/removeQuestions/:id',(req,res)=>{
     questionModel.deleteQuestion(id);
     res.send("deleted successfully")
 })
-// sp ----------------
+
 router.patch('/editQuestions/:id',(req,res)=>{
     let newInfo = req.body;
     let updated= questionModel.updateQuestion(newInfo);
