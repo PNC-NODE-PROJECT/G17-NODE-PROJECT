@@ -1,7 +1,7 @@
 // get data ---------------------
 
 var data =[];
-
+var historyAnser = [];
 axios.get('/api/getQuestions').then(response => {
     data = response.data;
     getData(data);
@@ -47,11 +47,10 @@ function loadQuiz() {
         data = response.data
         let currentQuizData = data[currentQuiz]
         questionEl.textContent = "Question : "+ currentQuizData.question + "?"
-        // console.log(currentQuizData);
-        a_text.textContent = currentQuizData.answer.a
-        b_text.textContent = currentQuizData.answer.b
-        c_text.textContent = currentQuizData.answer.c
-        d_text.textContent = currentQuizData.answer.d
+        a_text.textContent = 'a, ' + currentQuizData.answer.a
+        b_text.textContent = 'b, ' + currentQuizData.answer.b
+        c_text.textContent = 'c, ' + currentQuizData.answer.c
+        d_text.textContent = 'd, ' + currentQuizData.answer.d
     })
     
 }
@@ -81,13 +80,31 @@ submitBtn.addEventListener('click', () => {
                score+= parseInt(data[currentQuiz].score)
            }
     
+           let newObj = {};
+           newObj.correct_answer = data[currentQuiz].correctAnswer;
+           console.log(data[currentQuiz].correctAnswer);
+           newObj.user_answer = answer;
+           historyAnser.push(newObj);
            currentQuiz++
     
            if(currentQuiz < data.length) {
                loadQuiz()
            } else {
+               console.log(historyAnser);
+               let user_answer = "";
+               let trueAnswer = "";
+               for(let i = 0; i < historyAnser.length; i++){
+                   if(i<historyAnser.length - 1){
+                       user_answer += historyAnser[i].user_answer + ",";
+                       trueAnswer += data[i].correctAnswer + ",";
+                   }else{
+                    user_answer += historyAnser[i].user_answer;
+                    trueAnswer += data[i].correctAnswer;
+                   }
+               }
                quiz.innerHTML = `
                <h2>You answered ${parseInt(score)}/${parseInt(allQuestionScore)} scores</h2>
+               <p>list of what you have answer ${user_answer} and the answer of each question are ${trueAnswer}</p>
                <button onclick="location.reload()">Reload</button>
                `
            }
@@ -100,9 +117,6 @@ function showFirstPage(){
     document.querySelector('.container').style.display="flex";
     document.querySelector('.container').style.justifyContent="space-around";
     document.querySelector('.navbar').style.display="none";
-    // document.body.style.backgroundColor ="#d0d624";
     document.body.style.backgroundImage ="url('https://cdn.pixabay.com/photo/2022/03/15/08/23/school-supplies-7069761_1280.jpg')";
 
-    // document.body.style.backgroundColor ="#d0d624";
-    // document.body.style.backgroundImage ="none";
 }

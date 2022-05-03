@@ -160,7 +160,6 @@ function editQuestion(event) {
         showElement(dom_edit);
         hideElement(document.getElementsByClassName('addQuestion')[0]);
         getQuestionsById(id);
-
         }
 }
 function getPatch() {
@@ -180,11 +179,10 @@ function getPatch() {
         location.reload();
     })
 }
-// ----------------------------------sp testing update--------------------
+
 function getQuestionsById(id){
     
     axios.get('/api/getOneQuestion/'+id).then((result) => {
-        // console.log(result.data);
         let quest = result.data;
         update_question.value=quest.question;
         update_scores.value=quest.score;
@@ -208,17 +206,24 @@ function updateAQuestion(e){
     showElement(document.getElementsByClassName('addQuestion')[0]);
     refreshDom();
 }
-// ------------------------------sp testing--------------------
+
 refreshDom();
 
-// sp testing
+
 const dom_edit=document.querySelector('#editQuestion');
 let btn_update=document.querySelector('#edit_button');
 btn_update.addEventListener('click',getPatch);
 hideElement(dom_edit);
-// sp testing
+
 
 
 document.body.addEventListener("click",editQuestion);
 document.body.addEventListener("click", removeQuestion);
 btnSubmit.addEventListener("click", addQuestion);
+
+
+//  display good and bad answer 
+
+
+
+
