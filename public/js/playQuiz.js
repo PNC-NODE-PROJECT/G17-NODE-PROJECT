@@ -46,7 +46,7 @@ function loadQuiz() {
     axios.get('/api/getQuestions').then(response => {
         data = response.data
         let currentQuizData = data[currentQuiz]
-        questionEl.textContent = "Question : "+ currentQuizData.question + "?"
+        questionEl.textContent = "Question : "+ currentQuizData.question 
         a_text.textContent = 'a, ' + currentQuizData.answer.a
         b_text.textContent = 'b, ' + currentQuizData.answer.b
         c_text.textContent = 'c, ' + currentQuizData.answer.c
